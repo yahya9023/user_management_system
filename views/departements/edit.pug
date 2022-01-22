@@ -1,0 +1,17 @@
+extends ../layouts/layout
+block content
+    h1 Depertements/Add
+        if !departement
+            h2 There is no departement with this id
+        else 
+            form.add-form(method="post") 
+                label(for="name") Name
+                input#name( name="name",
+                    type="text", 
+                    placeholder="name",
+                    value=`${departement.name}`
+                )
+                br
+                .form-actions 
+                    input(type="button", value="Cancel", onclick="history.back()")
+                    input(type="submit", value="Save")

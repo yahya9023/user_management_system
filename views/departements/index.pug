@@ -1,0 +1,21 @@
+extends ../layouts/layout.pug
+
+block content
+  .container 
+    h1 Departements 
+    a(href="departements/add") Add Departments
+    
+    table.departements_table
+      thead 
+        tr 
+          th Id
+          th Departement
+          th Actions 
+      tbody 
+        for departement in departements  
+          tr
+            td= departement.id
+            td= departement.name
+            td.actions 
+              a(href=`departements/edit/${departement.id}`) edit
+              a(href=`departements/delete/${departement.id}`) delete

@@ -1,0 +1,33 @@
+extends ../layouts/layout.pug
+
+block content
+  .container 
+    h1 Users 
+    a.btn_add(href="users/add") Add Users
+    br
+    br
+    table.users_table
+      thead 
+        tr 
+          th Id
+          th FirstName
+          th LastName 
+          th Email 
+          th Password 
+          th Departement 
+          th Actions 
+      tbody 
+        for user in users 
+          tr
+            td.id_color= user.id
+            td= user.firstName
+            td= user.lastName
+            td= user.email
+            td= user.password
+            if user.Departement
+              td= user.Departement.name
+            else 
+              td ---
+            td.actions 
+              a.fill(href=`users/edit/${user.id}`) edit 
+              a.fill_delete(href=`users/delete/${user.id}`) delete
